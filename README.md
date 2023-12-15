@@ -8,5 +8,5 @@
   ####   Appointment Booking
   ####   Appointment Confirmation with Apointment date
 ## Extra Features :
-  ### Pagination
-  ### Carrousel
+  #### Pagination
+  #### Carrousel
