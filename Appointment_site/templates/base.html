@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{title}}</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+  <!-- Bootstrap core CSS -->
+
+</head>
+
+<style>
+    {% block style %}{% endblock style %}
+</style>
+
+<body>
+
+    <div class="header" style="background-color: #503335; url('') no-repeat fixed center">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+            <div class="container"><a class="navbar-brand" href="{% url "home" %}">Family Doctor X</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav justify-content-end">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#team">Our Team</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#services">Services</a>
+                        </li>
+                        
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#reviews">Testimonial</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="" id="navcol-1">
+                    <ul class="nav navbar-nav ">
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="{% url 'manage' %}">Manage</a>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <a href="{% url 'manage' %}" style="float: left; cursor:pointer;" aria-expanded="true" title="You Have {{count}} New Appointments">
+                            <i class="far fa-bell" style="font-size: 20px; float: left; color: black">
+                            </i>
+                            </a>
+                            <span class="badge badge-danger">{{count}}</span>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="{% url 'logout' %}">LogOut</a>
+                        </li>
+
+                        {% else %}
+
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                        <li class="nav-item"  role="presentation">
+                            <a class="nav-link active"  href="{% url 'login' %}">LogIn</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                        <!-- <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        </li> -->
+                    
+                </div>
+            </div>
+        </nav>
+   
+        
+    </div>
+    {% block cta %}{% endblock cta %}
+    {% block content %}{% endblock content %}
+
+    <!--  JQuery  -->
+
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <script>
+    {% block script %}{% endblock script %}
+    </script>
+ 
+</body>
+
+</html>
