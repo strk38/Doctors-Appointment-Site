@@ -10,3 +10,4 @@
 ## Extra Features :
   #### Pagination
   #### Carrousel
+  #### Notification Bar (includes number of new notifications for Admin)
